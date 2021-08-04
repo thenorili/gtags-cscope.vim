@@ -160,7 +160,11 @@ function! s:GtagsCscope()
     "
     " Get gtagsroot directory.
     "
-    let gtagsroot = s:GtagsCscope_GtagsRoot()
+    if $GTAGSROOT != ''
+       let gtagsroot = $GTAGSROOT
+       else
+          let gtagsroot = s:GtagsCscope_GtagsRoot()
+       endif
     if gtagsroot == ''
         return
     endif
